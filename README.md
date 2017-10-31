@@ -12,7 +12,7 @@ Installation
 
 Clone the repository and install the dependencies:
 
-```bash
+```sh
 git clone https://github.com/gersilex/serverhome.git
 cd serverhome
 npm install
@@ -51,8 +51,23 @@ You can create a file `public/logo.png` and it will be displayed centered if no 
 Run it
 ------
 
-```bash
+```sh
 npm start
+```
+
+Docker
+------
+
+Build the image with the bundled Dockerfile:
+
+```sh
+docker build -t serverhome:latest .
+```
+
+Run it:
+
+```sh
+docker run -it -v /tmp/config.yml:/app/config.yml -p3000:3000 serverhome:latest
 ```
 
 Caveats
