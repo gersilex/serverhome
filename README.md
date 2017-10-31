@@ -24,11 +24,10 @@ Configuration
 Create a `config.yml` in the root directory. Have a look at the `config.yml.spec` for a working example. Here is the format and what is what:
 
 ```yaml
-default:              # This is the default scope and everythin must be contained within here.
-  nav-items:          # This is the dictionary of services. The order is preserved.
-    MyWebService:     # This is the name of your first service. The key name will be displayed in the navbar.
-      uri: (String)   # Here comes the URL to your service. If it returns a code of >200 and <400 the service will turn green.
-    AnotherService:   # Next service
+default:            # This is the default scope and everything must be contained within here. The order is preserved.
+  MyWebService:     # This is the name of your first service. The key name will be displayed in the navbar.
+    uri: (String)   # Here comes the URL to your service. If it returns a code of >200 and <400 the service will turn green.
+  AnotherService:   # Next service
       uri: (String)   # The URI of AnotherService
     ...
 ```
