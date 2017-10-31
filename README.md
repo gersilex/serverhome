@@ -49,6 +49,13 @@ default:
 
 You can create a file `public/logo.png` and it will be displayed centered if no service was clicked, yet or there were errors. This can be changed in `public/index.html`.
 
+Run it
+------
+
+```bash
+npm start
+```
+
 Caveats
 -------
 
