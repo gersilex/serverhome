@@ -61,7 +61,7 @@ Caveats
 
 - Twitter Bootstrap 3 is included from MaxCDN. This means you need to have internet access to have a working CSS design. This is because I was lazy.
 - If a services denies CORS, then we cannot open it in the main iframe. Nothing will happen and the user has to middle-click/ open in new tab.
-- If the service in the iframe displays an error, it is likely that there will be black text on the black background.
+- If the service in the iframe displays an error, it is likely that there will be black text on the grey background. This will be hard to read.
 
 Contribution
 ------------
