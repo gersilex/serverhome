@@ -13,7 +13,7 @@ Installation
 Clone the repository and install the dependencies:
 
 ```bash
-git clone git@...
+git clone git@github.com:gersilex/serverhome.git
 cd serverhome
 npm install
 ```
