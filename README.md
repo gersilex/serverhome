@@ -5,7 +5,7 @@ Serverhome is a small web server / web service that reads a YAML configuration f
 
 This package contains the backend and the frontend which is served by the backend's web server. When the frontend calls the API for services and their states, the backend immediately returns all of the services and their last known states. It also queries all the services for their new states and saves them in-memory, to be served on the next query by a frontend.
 
-This means the service is always one check behind reality to increase responsiveness and should be asked regularily. The frontend sends a query every 2 seconds and increases the interval by 1 % per query up to **one minute** to mitigate accidental DoS'es (I have done this way too often).
+This means the service is always one check behind reality to increase responsiveness and should be asked regularily. The frontend sends a query every 2 seconds and increases the interval by 1 % per query up to **two minutes** to mitigate accidental DoS'es (I have done this way too often).
 
 Installation
 ------------
@@ -13,7 +13,7 @@ Installation
 Clone the repository and install the dependencies:
 
 ```bash
-git clone git@...
+git clone https://github.com/gersilex/serverhome.git
 cd serverhome
 npm install
 ```
@@ -48,6 +48,13 @@ default:
 ```
 
 You can create a file `public/logo.png` and it will be displayed centered if no service was clicked, yet or there were errors. This can be changed in `public/index.html`.
+
+Run it
+------
+
+```bash
+npm start
+```
 
 Caveats
 -------
