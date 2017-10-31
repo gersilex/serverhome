@@ -6,7 +6,7 @@
   "author": "Leroy Förster",
   "license": "MIT",
   "scripts": {
-    "start": "nodejs index.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "async": "^2.3.0",
