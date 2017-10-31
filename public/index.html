@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Serverhome</title>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+    <style>
+        #iframe {
+            position: absolute;
+            width: 100%;
+            height: calc(100% - 51px);
+            padding: 0;
+            margin: 0;
+            border-width: 0;
+            background-image: url(logo.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: black;
+        }
+
+        .navbar {
+            margin: 0;
+            /*height: 51px;*/
+        }
+
+        .status-online {
+          color: #8bc34a !important;
+        }
+    </style>
+</head>
+
+<script>
+var interval = 2000;
+
+function update() {
+  console.log("Update interval: ", interval);
+  if (interval < 120000) interval *= 1.01;
+  setTimeout(update, interval);
+  $.getJSON("/api/v1/services", function(services){
+    $('#list').html(null)
+    $.each(services, function(key, value){
+      $("#list").append(
+        '<li><a class="status-' + value.status + '" target="iframe" href="' + value.uri + '">' + key + '</a></li>\n'
+      );
+    })
+  });
+}
+
+$(document).ready(function(){
+  update();
+});
+
+</script>
+
+<body>
+<nav class="navbar navbar-inverse navbar-static-top">
+    <a class="navbar-brand">Nest Services</a>
+    <ul id="list" class="nav navbar-nav">
+    </ul>
+</nav>
+<iframe name="iframe" id="iframe"></iframe>
+</body>
+</html>
