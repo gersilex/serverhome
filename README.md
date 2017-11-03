@@ -27,6 +27,7 @@ Create a `config.yml` in the root directory. Have a look at the `config.yml.spec
 default:            # This is the default scope and everything must be contained within here. The order is preserved.
   MyWebService:     # This is the name of your first service. The key name will be displayed in the navbar.
     uri: (String)   # Here comes the URL to your service. If it returns a code of >200 and <400 the service will turn green.
+    redirect: (String) # Here comes the URL which you want to open in the iFrame when it's another one than the uri.
   AnotherService:   # Next service
       uri: (String)   # The URI of AnotherService
     ...
@@ -40,6 +41,7 @@ default:
     uri: http://router
   NAS:
     uri: http://nas
+    redirect: http://nas/config
   Kodi:
     uri: http://media:8080
   Drucker:
