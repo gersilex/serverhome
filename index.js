@@ -18,7 +18,12 @@ app.get('/api/v1/services', function (req, res) {
 
   async.forEachOf(services, function(value, key){
     value.status = 'offline';
-    request.get(value.uri, function (error, response, body){
+    if (typeof value.healthcheck !== "undefined") {
+      var tmp_uri = value.healthcheck
+    } else {
+      var tmp_uri = value.uri
+    }
+    request.get(tmp_uri, function (error, response, body){
       if(response){
 	if (response.statusCode >= 200 && response.statusCode < 400){
           value.status = 'online';

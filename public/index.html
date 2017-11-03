@@ -52,13 +52,8 @@ function update() {
   $.getJSON("/api/v1/services", function (services) {
     $('#list').html(null);
     $.each(services, function (key, value) {
-      if (value.redirect) {
-        local_href = value.redirect
-      } else {
-        local_href = value.uri
-      }
       $("#list").append(
-        '<li><a class="status-' + value.status + '" target="iframe" href="' + local_href + '">' + key + '</a></li>\n'
+        '<li><a class="status-' + value.status + '" target="iframe" href="' + value.uri + '">' + key + '</a></li>\n'
       );
     })
   });
