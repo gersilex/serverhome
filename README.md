@@ -1,7 +1,9 @@
 Serverhome
 ==========
 
-Serverhome is a small web server / web service that reads a YAML configuration file and starts on TCP port 3000 by default.
+Serverhome is a small web server / web service that reads a YAML configuration file and starts on TCP port 3000 by default. It displays a Navbar designed with Bootstrap 3 and displays the health-checked services within the Navbar.
+
+![Example Image](https://github.com/gersilex/serverhome/raw/master/image.png)
 
 This package contains the backend and the frontend which is served by the backend's web server. When the frontend calls the API for services and their states, the backend immediately returns all of the services and their last known states. It also queries all the services for their new states and saves them in-memory, to be served on the next query by a frontend.
 
