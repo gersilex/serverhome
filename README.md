@@ -1,6 +1,12 @@
 Serverhome
 ==========
 
+------------
+`DEPRECATION NOTICE`
+Development is stopped in order to contribute to a more promising project: https://github.com/linuxserver/Heimdall
+
+------------
+
 Serverhome is a small web server / web service that reads a YAML configuration file and starts on TCP port 3000 by default. It displays a Navbar designed with Bootstrap 3 and displays the health-checked services within the Navbar.
 
 ![Example Image](https://github.com/gersilex/serverhome/raw/master/image.png)
